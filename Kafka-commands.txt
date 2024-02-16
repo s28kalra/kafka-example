@@ -1,0 +1,14 @@
+1: Start zookeeper
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+2: Start Kafka Server
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+3: Create Topic
+.\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --topic topic1
+
+4: push a data to a topic
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic topic1
+
+5: consumer subscribe
+.\bin\windows\kafka-console-consumer.bat --topic topic1 --bootstrap-server localhost:9092 --from-beginning
